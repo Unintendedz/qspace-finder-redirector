@@ -1,5 +1,8 @@
 # QSpace Finder Redirector
 
+[![CI](https://github.com/Unintendedz/qspace-finder-redirector/actions/workflows/ci.yml/badge.svg)](https://github.com/Unintendedz/qspace-finder-redirector/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/Unintendedz/qspace-finder-redirector)](https://github.com/Unintendedz/qspace-finder-redirector/releases/latest)
+
 Make macOS open Finder-targeted folders in QSpace Pro.
 
 This is a small LaunchAgent for people using QSpace Pro as a Finder replacement on macOS. When Finder opens a folder, the redirector reads that folder path, opens the same location in QSpace Pro, activates QSpace Pro, and closes the Finder window.
