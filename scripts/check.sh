@@ -5,9 +5,12 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 bash -n "${ROOT}/install.sh" "${ROOT}/uninstall.sh" "${ROOT}/scripts/qspace-open"
 
-if command -v osacompile >/dev/null 2>&1; then
+if command -v osacompile >/dev/null 2>&1 &&
+  /usr/bin/osascript -e 'id of application "QSpace Pro"' >/dev/null 2>&1; then
   osacompile -o /tmp/qspace-finder-redirector.scpt "${ROOT}/scripts/redirector.applescript"
   rm -f /tmp/qspace-finder-redirector.scpt
+else
+  echo "Skipping QSpace Pro AppleScript compile check."
 fi
 
 if command -v shellcheck >/dev/null 2>&1; then
