@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# qspace-finder-redirector managed file
+set -euo pipefail
+
+target="${1:-${PWD}}"
+if [[ "${target}" != /* ]]; then
+  target="${PWD}/${target}"
+fi
+
+if [[ ! -e "${target}" ]]; then
+  echo "Path does not exist: ${target}" >&2
+  exit 1
+fi
+
+url=$(/usr/bin/osascript -l JavaScript -e 'function run(argv) { ObjC.import("Foundation"); return $.NSURL.fileURLWithPath(argv[0]).absoluteString.js; }' "${target}")
+
+/usr/bin/osascript - "${url}" <<'APPLESCRIPT'
+on run argv
+  tell application "QSpace Pro"
+    open urlstr (item 1 of argv)
+    activate
+  end tell
+end run
+APPLESCRIPT

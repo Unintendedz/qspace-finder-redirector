@@ -1,0 +1,7 @@
+.DS_Store
+*.scpt
+*.log
+*.err
+node_modules/
+.env
+.env.*
