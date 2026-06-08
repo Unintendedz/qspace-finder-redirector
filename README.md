@@ -3,11 +3,11 @@
 [![CI](https://github.com/Unintendedz/qspace-finder-redirector/actions/workflows/ci.yml/badge.svg)](https://github.com/Unintendedz/qspace-finder-redirector/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/Unintendedz/qspace-finder-redirector)](https://github.com/Unintendedz/qspace-finder-redirector/releases/latest)
 
-Make macOS open Finder-targeted folders in QSpace Pro.
+Open Finder-backed folders in QSpace Pro.
 
-This is a small LaunchAgent for people using QSpace Pro as a Finder replacement on macOS. When Finder opens a folder, the redirector reads that folder path, opens the same location in QSpace Pro, activates QSpace Pro, and closes the Finder window.
+Have you set QSpace Pro as your Finder replacement, then noticed that opening `Downloads`, `Desktop`, Dock folders, Spotlight results, browser downloads, or "Reveal in Finder" still brings up Finder?
 
-It is useful when Downloads, Desktop, Dock folders, Spotlight results, Raycast actions, browser downloads, or "Reveal in Finder" keep falling back to Finder.
+This project is for that gap. It runs a small LaunchAgent in your user session. When Finder opens a folder, the redirector reads that folder path, opens the same location in QSpace Pro, activates QSpace Pro, and closes the Finder window.
 
 ## Install
 
@@ -34,9 +34,13 @@ Then approve any macOS Automation permission prompt for `osascript` controlling 
 
 ## Why
 
-QSpace Pro can act as a Finder alternative, and its official FAQ notes that full Finder replacement has macOS limitations. On newer macOS versions, some paths still open Finder even after configuring QSpace Pro.
+QSpace's official FAQ explains the normal setup here: [How to replace Finder?](https://qspace.awehunt.com/en-us/faq/howto-replace-finder.html)
 
-This project provides a practical workaround for those cases.
+That setup covers many cases. macOS can still route some folder opens through Finder. The QSpace Pro Open Mode screen also calls this out for newer macOS versions:
+
+![QSpace Pro Open Mode settings showing the macOS 26.4 compatibility note](assets/qspace-open-mode-macos-26-note.png)
+
+This redirector is a small workaround for the everyday version of that problem: `open ~/Downloads` opens Finder, and you wanted QSpace Pro.
 
 ## Requirements
 
